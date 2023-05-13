@@ -1,0 +1,23 @@
+.card {
+  border: 15px;
+}
+
+.card_mb-3 {
+  width: 800px;
+  height: 650px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 100px auto;
+  border-radius: 15px;
+}
+
+.card-img-top-new {
+  width: 750px;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 15px auto;
+  border-radius: 12px;
+}
+
