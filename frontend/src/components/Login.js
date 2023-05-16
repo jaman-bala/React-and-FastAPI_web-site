@@ -13,7 +13,7 @@ export default function Login(){
           alert("Username has left Blank!");
         }
         else if(password.length === 0){
-          alert("password has left Blank!");
+          alert ("password has left Blank!");
         }
         else{
             console.log('axios')
@@ -23,7 +23,6 @@ export default function Login(){
             })
             .then(function (response) {
                 console.log(response);
-                //console.log(response.data);
                 alert(response.data["message"])
                 if (response.data["message"]=="Login failed") {
                     alert("Login failed");

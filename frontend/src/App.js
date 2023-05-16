@@ -10,6 +10,7 @@ import About from './components/About.js';
 import Contact from './components/Contact.js';
 import News from './components/News.js';
 import Faq from './components/Faq.js';
+import 
 import { RequireToken } from './components/Auth.js';
 
 
@@ -61,6 +62,7 @@ function App() {
         <Route path="/faq" element={<Faq />} />
 
           <Route path="/login" element={<Login />} />
+          <Route path="/pageadmin" element={<Adminpanel />} />
           <Route
            path="/profile"
             element={

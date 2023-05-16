@@ -1,38 +1,33 @@
-from typing import Union
+from typing import Union, List
 import jwt
+from starlette.responses import RedirectResponse, Response
 from fastapi.encoders import jsonable_encoder
 from fastapi import APIRouter
+from typing import Optional
+from fastapi import HTTPException
 
-
-from backend.admin.schema import Loginclass
-
-
-SECRET_KEY = "$OkIrm5y0zuo#${Nf2scU*xe~O5*rQ"
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 800
-
+from . import schema, services, auth, models
+from db import database
 admin = APIRouter()
-
-# test
-dummy_user = {
-    "username": "asd",
-    "password": "123456"
-}
-
 
 
 
 
 @admin.get("/")
 async def read_root():
-    return {"Hello": "Word"}
+    pass
 
-@admin.post("/login")
-async def login_user(login_item: Loginclass):
-    data = jsonable_encoder(login_item)
-    if dummy_user['username'] == data['username'] and dummy_user['password'] == data['password']:
-        encoded_jwt = jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
-        return {'token': encoded_jwt }
-    else:
-        return {'message': 'Login failed'}
+
+
+
+@admin.post("/createusers/")
+async def create_user(users: models.User):
+    return await users.save()
+
+@admin.get("/api/createuser/", tags=["users"])
+async def get_user():
+    users = await models.User.objects.all()
+    user_json = jsonable_encoder(users)
+    return user_json
+
 
