@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.admin.api import admin
+from backend.projects.api import pro
 from db import database, metadata, engine
 
 from backend.admin.models import User
@@ -33,3 +34,4 @@ async def shutdown() -> None:
 
 
 app.include_router(admin)
+app.include_router(pro)

@@ -1,5 +1,3 @@
-from db import database
-
 
 
 

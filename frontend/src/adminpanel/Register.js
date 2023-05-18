@@ -3,11 +3,10 @@ import '../adminpanel/Adminpanel.css'
 
 import { } from 'react-router-dom';
 
-export default function Adminpanel() {
+export default function Register() {
     return (
         <div>
-            <html lang="ru">
-                <head>
+                    <head>
                     <meta charset="utf-8" />
                     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -17,7 +16,7 @@ export default function Adminpanel() {
                     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
                     <link href="css/styles.css" rel="stylesheet" />
                     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-                </head>
+                    </head>
                 <body class="sb-nav-fixed">
                     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
                         <a class="navbar-brand ps-3" href="/pageadmin">Админпанель</a>
@@ -89,7 +88,7 @@ export default function Adminpanel() {
                                                 <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
                                                     <nav class="sb-sidenav-menu-nested nav">
                                                         <a class="nav-link" href="login.html">Login</a>
-                                                        <a class="nav-link" href="/registr">Register</a>
+                                                        <a class="nav-link" href="register.html">Register</a>
                                                         <a class="nav-link" href="password.html">Forgot Password</a>
                                                     </nav>
                                                 </div>
@@ -123,139 +122,62 @@ export default function Adminpanel() {
                                 </div>
                             </nav>
                         </div>
-                        <div id="layoutSidenav_content">
-                            <main>
-                                <div class="container-fluid px-4">
-                                    <h1 class="mt-4">Dashboard</h1>
-                                    <ol class="breadcrumb mb-4">
-                                        <li class="breadcrumb-item active">Dashboard</li>
-                                    </ol>
-                                    <div class="row">
-                                        <div class="col-xl-3 col-md-6">
-                                            <div class="card bg-primary text-white mb-4">
-                                                <div class="card-body">Primary Card</div>
-                                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </body>
+
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
+                                    <div class="card-body">
+                                        <form>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" />
+                                                        <label for="inputFirstName">First name</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating">
+                                                        <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" />
+                                                        <label for="inputLastName">Last name</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6">
-                                            <div class="card bg-warning text-white mb-4">
-                                                <div class="card-body">Warning Card</div>
-                                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <label for="inputEmail">Email address</label>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                                                        <label for="inputPassword">Password</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-floating mb-3 mb-md-0">
+                                                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                                                        <label for="inputPasswordConfirm">Confirm Password</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6">
-                                            <div class="card bg-success text-white mb-4">
-                                                <div class="card-body">Success Card</div>
-                                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                                </div>
+                                            <div class="mt-4 mb-0">
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="login.html">Create Account</a></div>
                                             </div>
-                                        </div>
-                                        <div class="col-xl-3 col-md-6">
-                                            <div class="card bg-danger text-white mb-4">
-                                                <div class="card-body">Danger Card</div>
-                                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                                    <a class="small text-white stretched-link" href="#">View Details</a>
-                                                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        </form>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-xl-6">
-                                            <div class="card mb-4">
-                                                <div class="card-header">
-                                                    <i class="fas fa-chart-area me-1"></i>
-                                                    Area Chart Example
-                                                </div>
-                                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="card mb-4">
-                                                <div class="card-header">
-                                                    <i class="fas fa-chart-bar me-1"></i>
-                                                    Bar Chart Example
-                                                </div>
-                                                <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card mb-4">
-                                        <div class="card-header">
-                                            <i class="fas fa-table me-1"></i>
-                                            DataTable Example
-                                        </div>
-                                        <div class="card-body">
-                                            <table id="datatablesSimple">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                    </tr>
-                                                </thead>
-                                                <tfoot>
-                                                    <tr>
-                                                        <th>Name</th>
-                                                        <th>Position</th>
-                                                        <th>Office</th>
-                                                        <th>Age</th>
-                                                        <th>Start date</th>
-                                                        <th>Salary</th>
-                                                    </tr>
-                                                </tfoot>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Tiger Nixon</td>
-                                                        <td>System Architect</td>
-                                                        <td>Edinburgh</td>
-                                                        <td>61</td>
-                                                        <td>2011/04/25</td>
-                                                        <td>$320,800</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
+                                    <div class="card-footer text-center py-3">
+                                        <div class="small"><a href="login.html">Have an account? Go to login</a></div>
                                     </div>
                                 </div>
-                            </main>
-                            <footer class="py-4 bg-light mt-auto">
-                                <div class="container-fluid px-4">
-                                    <div class="d-flex align-items-center justify-content-between small">
-                                        <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                                        <div>
-                                            <a href="#">Privacy Policy</a>
-                                            &middot;
-                                            <a href="#">Terms &amp; Conditions</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </footer>
+                            </div>
                         </div>
                     </div>
-                    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-                    <script src="js/scripts.js"></script>
-                    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-                    <script src="assets/demo/chart-area-demo.js"></script>
-                    <script src="assets/demo/chart-bar-demo.js"></script>
-                    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-                    <script src="js/datatables-simple-demo.js"></script>
-                </body>
-                </html>
-
-
-
-                </div>
+                </main>
+        </div>
     );
 }

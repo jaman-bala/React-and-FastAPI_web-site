@@ -11,6 +11,7 @@ class User(ormar.Model):
     first_name: str = ormar.String(max_length=30)
     last_name: str = ormar.String(max_length=30)
     email: str = ormar.String(max_length=30)
+    # is_active: bool = ormar.Boolean(default=True, nullable=False,)
 
 
     def __str__(self):

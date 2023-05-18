@@ -1,0 +1,8 @@
+venv/
+node_modules
+__pycache__
+auth.py
+sqlite.db
+venv/
+env/
+.env
