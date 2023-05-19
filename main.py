@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.admin.api import admin
-from backend.projects.api import pro
-from db import database, metadata, engine
 
-from backend.admin.models import User
+# from backend.admin.api import admin
+from backend.projects.api import pro
+
+from db import connect_db, disconnect_db
 
 app = FastAPI()
 app.add_middleware(
@@ -15,23 +15,20 @@ app.add_middleware(
     allow_credentials=True,
     allow_origins=["http://localhost:3000"])
 
- 
-metadata.create_all(engine)
-app.state.database = database
+
+
 
 @app.on_event("startup")
 async def startup() -> None:
-    database_ = app.state.database
-    if not database_.is_connected:
-        await database_.connect()
+    await connect_db()
 
 
 @app.on_event("shutdown")
 async def shutdown() -> None:
-    database_ = app.state.database
-    if database_.is_connected:
-        await database_.disconnect()
+    await disconnect_db()
 
 
-app.include_router(admin)
+
+
+# app.include_router(admin)
 app.include_router(pro)
