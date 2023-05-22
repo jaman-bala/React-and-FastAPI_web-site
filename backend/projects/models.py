@@ -6,7 +6,7 @@ from tortoise.contrib.pydantic import pydantic_model_creator
 class About(Model):
     id = fields.IntField(pk=True)
     title = fields.CharField(max_length=255)
-    description = fields.TextField()
+    description = fields.TextField(max_length=9999)
     image_path = fields.CharField(max_length=255)
     uploaded_at = fields.DatetimeField(auto_now_add=True)
 
@@ -22,7 +22,7 @@ class About(Model):
 class News(Model):
     id = fields.IntField(pk=True)
     title = fields.CharField(max_length=255)
-    description = fields.TextField()
+    description = fields.TextField(max_length=9999)
     image_path = fields.CharField(max_length=255)
     uploaded_at = fields.DatetimeField(auto_now_add=True)
 

@@ -1,11 +1,9 @@
-import React, { } from 'react';
+import React from 'react';
 import './App.css';
-
-import {BrowserRouter, Link, Route, Routes} from 'react-router-dom';
-
-import Login from './components/Login.js'
-import Profile from './components/Profile.js'
-import Page from './components/Page.js'
+import { BrowserRouter as Router, Link, Route, Routes } from 'react-router-dom';
+import Login from './components/Login.js';
+import Profile from './components/Profile.js';
+import Page from './components/Page.js';
 import About from './components/About.js';
 import Contact from './components/Contact.js';
 import News from './components/News.js';
@@ -13,12 +11,13 @@ import Faq from './components/Faq.js';
 // import { RequireToken } from './components/Auth.js';
 import Adminpanel from './adminpanel/Adminpanel';
 import Register from './adminpanel/Register';
-
+import { ProductProvider } from './ProductContext';
 
 function App() {
   return (
-    <div className="vh-100 gradient-custom">   
-        <BrowserRouter>
+    <div className="vh-100 gradient-custom">
+      <Router>
+        <ProductProvider>
           <Routes>
             <Route path="/" element={<Page />} />
             <Route path="/about" element={<About />} />
@@ -28,12 +27,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/pageadmin" element={<Adminpanel />} />
             <Route path="/registr" element={<Register />} />
-            {/* <Route path="/pageadmin" element={<RequireToken><Adminpanel /></RequireToken>}/>  */}
+            {/* <Route path="/pageadmin" element={<RequireToken><Adminpanel /></RequireToken>}/> */}
           </Routes>
-        </BrowserRouter>
+        </ProductProvider>
+      </Router>
     </div>
-
   );
 }
 
-export default App; 
+export default App;

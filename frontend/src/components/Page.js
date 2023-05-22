@@ -1,8 +1,11 @@
 import React, { } from "react";
+import { Navbar, Nav, Form, FormControl, Button, Badge} from 'react-bootstrap'
+import {Link} from "react-router-dom"
 
-export default function Page() {
+const Page = () => {
     return (
         <div>
+            
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div class="container px-5">
                     <a class="navbar-brand" href="/"><img
@@ -210,3 +213,5 @@ export default function Page() {
 
     );
 }
+
+export default Page;

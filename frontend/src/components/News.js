@@ -1,6 +1,19 @@
-import React, { } from "react";
+import React, { useContext, useEffect } from "react";
+import { ProductContext } from "../ProductContext";
+import NewsCard from "./NewsCard"
+ const News = () => {
+    const [products, setProducts] = useContext(ProductContext)
 
-export default function News() {
+    useEffect(() => {
+        fetch("http://127.0.0.1:8000/news")
+        .then(resp => {
+            return resp.json();
+        }).then(results => {
+                console.log(results)
+            setProducts({"data": [...results.data]})
+        })
+    })
+
     return(
         <div>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -29,62 +42,37 @@ export default function News() {
                     </div>
                 </div>
             </nav>
+            {products.data.map((product) => (
             <div class="card_mb-3">
-                        <div class="card-body">
+                <div class="card-body">
                             <div>
                                 <h5 class="card-title">
-                                    После установки новой прошивки перестаёт работать МФУ HP OfficeJet Pro 9020e
-                                    </h5>
+                                <NewsCard
+                                       title = {product.title}
+                                       />
+                                </h5>
+                                    
                                 </div>
                             <div>
                                 <img src="https://cdn.iz.ru/sites/default/files/styles/1920x1080/public/article-2022-08/2022-06-06T190356Z_765158456_RC2IMU9YR922_RTRMADP_3_APPLE-DEVELOPER_0.JPG.jpg?itok=jK4DIHdY" class="card-img-top-new" alt="..." />
                             </div>
-                                <p class="card-text">После установки новой официальной прошивки с помощью утилиты обновления Smart Update Manager у пользователей по всему миру перестали работать МФУ HP OfficeJet Pro 9020e и 9022e.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                <p class="card-text">
+
+                                    <NewsCard
+                                    description={product.description}
+                                    />                                      
+                                    </p>
+                            <p class="card-text"><small class="text-muted">
+                                <NewsCard
+                                uploaded_at={product.uploaded_at}
+                                />
+                                </small></p>
+                      
                         </div>
+                        
             </div>
-            <div class="card_mb-3">
-                        <div class="card-body">
-                            <div>
-                                <h5 class="card-title">
-                                    После установки новой прошивки перестаёт работать МФУ HP OfficeJet Pro 9020e
-                                    </h5>
-                                </div>
-                            <div>
-                                <img src="https://cdn.iz.ru/sites/default/files/styles/1920x1080/public/article-2022-08/2022-06-06T190356Z_765158456_RC2IMU9YR922_RTRMADP_3_APPLE-DEVELOPER_0.JPG.jpg?itok=jK4DIHdY" class="card-img-top-new" alt="..." />
-                            </div>
-                                <p class="card-text">После установки новой официальной прошивки с помощью утилиты обновления Smart Update Manager у пользователей по всему миру перестали работать МФУ HP OfficeJet Pro 9020e и 9022e.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-            </div>
-            <div class="card_mb-3">
-                        <div class="card-body">
-                            <div>
-                                <h5 class="card-title">
-                                    После установки новой прошивки перестаёт работать МФУ HP OfficeJet Pro 9020e
-                                    </h5>
-                                </div>
-                            <div>
-                                <img src="https://cdn.iz.ru/sites/default/files/styles/1920x1080/public/article-2022-08/2022-06-06T190356Z_765158456_RC2IMU9YR922_RTRMADP_3_APPLE-DEVELOPER_0.JPG.jpg?itok=jK4DIHdY" class="card-img-top-new" alt="..." />
-                            </div>
-                                <p class="card-text">После установки новой официальной прошивки с помощью утилиты обновления Smart Update Manager у пользователей по всему миру перестали работать МФУ HP OfficeJet Pro 9020e и 9022e.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-            </div>
-            <div class="card_mb-3">
-                        <div class="card-body">
-                            <div>
-                                <h5 class="card-title">
-                                    После установки новой прошивки перестаёт работать МФУ HP OfficeJet Pro 9020e
-                                    </h5>
-                                </div>
-                            <div>
-                                <img src="https://cdn.iz.ru/sites/default/files/styles/1920x1080/public/article-2022-08/2022-06-06T190356Z_765158456_RC2IMU9YR922_RTRMADP_3_APPLE-DEVELOPER_0.JPG.jpg?itok=jK4DIHdY" class="card-img-top-new" alt="..." />
-                            </div>
-                                <p class="card-text">После установки новой официальной прошивки с помощью утилиты обновления Smart Update Manager у пользователей по всему миру перестали работать МФУ HP OfficeJet Pro 9020e и 9022e.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-            </div>
+            ))}
+         
             
             
             <footer class="bg-dark py-4 mt-auto">
@@ -104,3 +92,5 @@ export default function News() {
         </div>
     );
 }
+
+export default News;
